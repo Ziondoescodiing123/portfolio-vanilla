@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Zion Uzuokoh — Software Engineer based in Canada. Building web projects, learning through trainings, and passionate about basketball."
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bg: "var(--color-bg)",
+              surface: "var(--color-surface)",
+              "surface-hover": "var(--color-surface-hover)",
+              border: "var(--color-border)",
+              "border-strong": "var(--color-border-strong)",
+              text: "var(--color-text)",
+              "text-muted": "var(--color-text-muted)",
+              "text-subtle": "var(--color-text-subtle)",
+              accent: "var(--color-accent)",
+              "accent-hover": "var(--color-accent-hover)",
+              "on-accent": "var(--color-on-accent)",
+              success: "var(--color-success)",
+            },
+            fontFamily: {
+              display: ["var(--font-display)", "system-ui", "sans-serif"],
+              body: ["var(--font-body)", "system-ui", "sans-serif"],
+            },
+            boxShadow: {
+              elevated: "var(--shadow-elevated)",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Zion Uzuokoh | Software Engineer</title>
+  </head>
+  <body class="min-h-screen bg-bg font-body text-text">
+    <script type="module" src="js/basketball.js"></script>
+    <script src="js/main.js"></script>
+    <header id="site-header" class="fixed inset-x-0 top-0 z-50 bg-black/55 backdrop-blur-md transition-colors  duration-300 ">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:h[4.25rem]">
+    <a href="#top" class="font-display text-lg font-extrabold tracking-tight text-white md:text-xl">Zion Uzuokoh</a>
+  <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+  <a href="#about" class="rounded-sm px-3 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white">About</a>
+  <a href="#experience" class="rounded-sm px-3 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white">Experience</a>
+  <a href="#skills" class="rounded-sm px-3 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white">Skills</a>
+<a href="#projects" class="rounded-sm px-3 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white">Projects</a>
+ <a href="#contact" class="rounded-sm px-3 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white">Contact</a>
+ </nav> 
+ <div class="flex items-center gap-2">
+  <button id="theme-toggle" type="button" class="nav-icon hidden sm:inline-flex" aria-label="Toggle theme">
+  <i data-theme-icon="sun" class="bx bx-sun icon" aria-hidden="true"></i>
+  <i data-theme-icon="moon" class="bx bx-moon icon" hidden aria-hidden="true"></i>
+  </button>
+  <a href="#contact" class="rounded-sm px-3 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white" 
+  >Contact</a>
+  >
+</nav>
+<div class="flex items-center gap-2">
+  <button 
+  id="theme-toggle"
+  type="button"
+  class="nav-icon hidden sm:inline-flex"
+  aria-label="Toggle theme"
+  >
+  <i
+  data-theme-icon="sun"
+  class="bx bx-sun icon"
+  aria-hidden="true"
+  ></i>
+  <i
+  data-theme-icon="moon"
+  class="bx bx-moon icon"
+  hidden
+  aria-hidden="true"
+  ></i>
+  </button>
+  <a
+  href="#contact"
+  class="btn btn-primary hidden min-h-10 text-sm sm:inline-flex"
+  >let's talk</a>
+  >
+  <button
+  id="menu-open"
+  type="button"
+  class="nav-icon md:hidden"
+  aria-label="Open menu"
+  >
+  <i class="bx bx-menu icon" aria-hidden="true"></i>
+</button>
+</div>
+  </div>
+</header>
+
+<div
+  id="drawer-backdrop"
+  class="drawer-backdrop fixed inset-0 z-[100] bg-black/55"
+  aria-hidden="true"
+>
+<aside
+id="drawer-panel"
+class="drawer-panel"
+role="dialog"
+aria-modal="true"
+aria-label="Navigation"
+aria-hidden="true"
+>
+<div
+  class="flex items-center justify-between border-b border-border px-4 py-4"
+  >
+  <p class="font-display text-lg font-bold">Zion</p>
+  <button
+  id="menu-close"
+  type="button"
+  class="btn-icon"
+  aria-label="Close menu"
+  >
+  <i class="bx bx-x icon" aria-hidden="true"></i>
+</button>
+</div>
+<nav class="flex-1 overflow-y-auto py-3">
+  <a 
+   data-drawer-close
+   href="#about"
+   class="block rounded-sm px-4 py-3 hover:bg-surface-hover"
+   >About</a>
+   >
+  <a
+    data-drawer-close
+    href="#experience"
+    class="block rounded-sm px-4 py-3 hover:bg-surface-hover"
+    >Experience</a
+  >
+  <a
+    data-drawer-close
+    href="#skills"
+    class="block rounded-sm px-4 py-3 hover:bg-surface-hover"
+    >Skills</a
+  >
+  <a
+    data-drawer-close
+    href="#projects"
+    class="block rounded-sm px-4 py-3 hover:bg-surface-hover"
+    >Projects</a
+  >
+  <a
+    data-drawer-close
+    href="#contact"
+    class="block rounded-sm px-4 py-3 hover:bg-surface-hover"
+    >Contact</a
+  >
+</nav>
+<div class="space-y-2 border-t border-border p-4">
+  <button 
+  id ="theme-toggle-drawer"
+  type="button"
+  class="btn btn-ghost w-full"
+  >
+  <i
+  data-theme-icon="sun"
+  class="bx bx-sun icon"
+  aria-hidden="true"
+  ></i>
+  <i
+  data-theme-icon="moon"
+  class="bx bx-moon icon"
+  hidden
+  aria-hidden="true"
+  ></i>
+  <span data-theme-label>Light mode</span>
+ </button>
+ <a data-drawer-close href="#contact" class="btn btn-primary w-full"
+  >let's talk</a
+  >
+</div>
+</aside>
+</div>
+
+<main>
+     <!-- Hero with interactive 3D basketba  ll-->   
+    <section id="top" class="relative min-h-[100svh] overflow-hidden">
+      <div class="absolute inset-0 hero-glow"></div>
+      <div class="relative z-10 mx-auto grid min-h-[100svh] max-w-6xl items-center gap-10 px-4 pb-16 pt-28 md:grid-cols-2 md:gap-12 md:pb-20 md:pt-24"></div>
+      <div>
+        <p class="font-display text-sm font-semibold uppercase tracking-[.22em] text-accent md:text-base">Zion Uzuokoh</p>
+        <h1 class="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5x md:text-6xl lg:text-[3.75rem]">
+          Software Engineer
+          <span class="mt-2 block text-[0.72em] font-bold text-text-muted sm:mt-3">
+            crafting <span id="word-rotate" class="word-rotate">web pages</span>
+          </span>
+        </h1>
+        <p class="mt-5 max-w-md text-base leading-relaxed text-text-muted md:mt-6 md:text-lg">
+          Based in Canada. Always learning through training, shipping practice projects, and bringing the same focus I have on the court to the code I write.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3 md:mt-10">
+          <a href="#projects" class="btn shimmer-btn min-h-11 text-sm md:min-h-12 md:text-base"><span>View Projects</span></a>
+          <a href="#contact" class="btn btn-secondary min-h-11 min-w-[9rem] text-sm md:min-h-12">Contact Me</a>
+        </div>
+      </div>
+      <div class="reveal is-visible">
+        <div id="basketball-wrap" aria-label="Interactive 3D basketball">
+          <canvas id="basketball-canvas"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+     <section id="about" class="scroll-mt-24 border-t border-border py-20 md:py-28">
+      <div class="mx-auto grid max-w-6xl gap-12 px-4 px-4 md:grid-cols-[1fr_1.35fr] md:gap-16">
+        <div class="reveal">
+         <p class="section-eyebrown">About</p>
+         <h2 class="mt-3 font-display text-3xl font-bold tracking-tight md:text-4xl">
+          Code like practice.
+          <span  class="mt-1 block text-text-muted">Show up every day.</span>
+         </h2>
+        </div>
+        <div class="reveal">
+        <div class="space-y-5 text-base leading relaxed text-text-muted md:text-lg">
+          <p>I'm Zion Uzuokoh, a software engineer based in Canada with a strong love for basketball and a steady hunger to keep learning.</p>
+          <p>I spend my time in coding trainings, buliding HTML and CSS projects, and sharpening the fundamentals that turns ideas into clean, working web pages</p>
+          <p>Off the screen, you'll me on the court - the discipline, teamwork, and repetition from basketball shape how from basketball shape how I approach engineering too.</p>
+        </div>
+        <dl class="mt-10 grid gap-6 sm:grid-cols-2">
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-wider text-text-subtle">Focus</dt>
+            <dd class="mt-1 font-display text-lg font-semibold">Software Engineering</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-wider text-text-subtle">Passion</dt>
+            <dd class="mt-1 font-display text-lg font-semibold">basketball</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-wider text-text-subtle">Based in</dt>
+            <dd class="mt-1 font-display text-lg font-semibold">Canada</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-wider text-text-subtle">Open to</dt>
+            <dd class="mt-1 font-display text-lg font-semibold">Roles & mentorship</dd>
+          </div>
+        </dl>
+        </div>
+      </div>
+     </section>
+
+     
+
+<!-- Skills -->
+<section id="skills" class="scroll-mt-24 border-t border-border py-20 md:py-28">
+  <div class="mx-auto max-w-6xl px-4">
+
+    <div class="reveal">
+      <p class="section-eyebrow">Skills</p>
+
+      <h2 class="mt-3 max-w-xl font-display text-3xl font-bold tracking-tight md:text-4xl">
+        What I'm sharpening
+      </h2>
+
+      <p class="mt-3 max-w-xl text-text-muted">
+        Core web fundamentals and the tools I use while training and building projects.
+      </p>
+    </div>
+
+    <div class="reveal mt-10">
+
+      <div class="marquee">
+        <div class="marquee-track">
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            HTML5
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            CSS3
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            JavaScript
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            Responsive Design
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            Flexbox
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            CSS Grid
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            Git
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            GitHub
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            VS Code
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            Figma basics
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            Three.js
+          </span>
+
+        </div>
+
+        <div class="marquee-track" aria-hidden="true">
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            HTML5
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            CSS3
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            JavaScript
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            Responsive Design
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            Flexbox
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            CSS Grid
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            Git
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            GitHub
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            VS Code
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            Figma basics
+          </span>
+
+          <span class="mx-1 inline-flex items-center rounded-sm border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted">
+            Three.js
+          </span>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-10 grid gap-5 md:grid-cols-3">
+
+      <div class="spotlight-card p-6 reveal h-full">
+        <div class="spotlight-inner">
+          <h3 class="font-display text-xl font-bold">Frontend</h3>
+
+          <ul class="mt-5 space-y-2.5 text-sm text-text-muted">
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+              HTML5
+            </li>
+
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+              CSS3
+            </li>
+
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+              JavaScript
+            </li>
+
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+              Responsive Design
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="spotlight-card p-6 reveal h-full">
+        <div class="spotlight-inner">
+          <h3 class="font-display text-xl font-bold">Tools</h3>
+
+          <ul class="mt-5 space-y-2.5 text-sm text-text-muted">
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+              Git & GitHub
+            </li>
+
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+              VS Code
+            </li>
+
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+              Figma
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="spotlight-card p-6 reveal h-full">
+        <div class="spotlight-inner">
+          <h3 class="font-display text-xl font-bold">Learning</h3>
+
+          <ul class="mt-5 space-y-2.5 text-sm text-text-muted">
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+              Coding bootcamps
+            </li>
+
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+              Practice projects
+            </li>
+
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+              Continuous learning
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Projects from github.com/ziondoescoding123 -->
+<section id="projects" class="scroll-mt-24 border-t border-border py-20 md:py-28">
+  <div class="mx-auto max-w-6xl px-4">
+
+    <div class="reveal">
+      <p class="section-eyebrow">Projects</p>
+
+      <h2 class="mt-3 max-w-xl font-display text-3xl font-bold tracking-tight md:text-4xl">
+        From my GitHub
+      </h2>
+
+      <p class="mt-3 max-w-xl text-text-muted">
+        Practice pages, themed builds, and layout recreations from
+        <a
+          href="https://github.com/Ziondoescoding123"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent hover:underline">
+          @Ziondoescoding123
+        </a>.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-5 md:grid-cols-3">
+
+      <article class="spotlight-card reveal flex h-full flex-col p-6">
+        <div class="spotlight-inner flex h-full flex-col">
+          <h3 class="font-display text-xl font-bold">
+            Practice Projects
+          </h3>
+
+          <p class="mt-3 text-sm leading-relaxed text-text-muted">
+            A collection of frontend practice projects built while learning HTML,
+            CSS, JavaScript, responsive layouts, and modern web development.
+          </p>
+
+          <a
+            href="https://github.com/Ziondoescoding123"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group mt-auto pt-6 text-sm font-semibold text-accent">
+            View on GitHub
+          </a>
+        </div>
+      </article>
+
+      <article class="spotlight-card reveal flex h-full flex-col p-6">
+        <div class="spotlight-inner flex h-full flex-col">
+          <h3 class="font-display text-xl font-bold">
+            Themed Builds
+          </h3>
+
+          <p class="mt-3 text-sm leading-relaxed text-text-muted">
+            Creative themed websites focused on improving visual design,
+            responsive layouts, and frontend development skills.
+          </p>
+
+          <a
+            href="https://github.com/Ziondoescoding123"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group mt-auto pt-6 text-sm font-semibold text-accent">
+            View on GitHub
+          </a>
+        </div>
+      </article>
+
+      <article class="spotlight-card reveal flex h-full flex-col p-6">
+        <div class="spotlight-inner flex h-full flex-col">
+          <h3 class="font-display text-xl font-bold">
+            UI Recreations
+          </h3>
+
+          <p class="mt-3 text-sm leading-relaxed text-text-muted">
+            Layout recreations and experiments designed to strengthen CSS,
+            responsive design, and interface-building skills.
+          </p>
+
+          <a
+            href="https://github.com/Ziondoescoding123"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group mt-auto pt-6 text-sm font-semibold text-accent">
+            View on GitHub
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Contact -->
+<section id="contact" class="scroll-mt-24 border-t border-border py-20 md:py-28">
+  <div class="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+
+    <div class="reveal">
+      <p class="section-eyebrow">Contact</p>
+
+      <h2 class="mt-3 font-display text-3xl font-bold tracking-tight md:text-4xl">
+        Let's connect
+      </h2>
+
+      <p class="mt-4 max-w-md text-text-muted">
+        Open to junior roles, training opportunities, and collaborations.
+        Based in Canada — always happy to talk code or basketball.
+      </p>
+
+      <ul class="mt-10 space-y-4">
+
+        <li>
+          <a
+            href="mailto:zionuzuokoh@gmail.com"
+            class="group flex items-center gap-3 transition hover:text-accent">
+
+            <span class="btn-icon pointer-events-none">
+              <i class="bx bx-envelope icon" aria-hidden="true"></i>
+            </span>
+
+            <span>
+              <span class="block text-xs font-semibold uppercase tracking-wider text-text-subtle">
+                Email
+              </span>
+
+              <span class="text-sm font-medium md:text-base">
+                zionuzuokoh@gmail.com
+              </span>
+            </span>
+
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://github.com/Ziondoescoding123"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-3 transition hover:text-accent">
+
+            <span class="btn-icon pointer-events-none">
+              <i class="bx bxl-github icon" aria-hidden="true"></i>
+            </span>
+
+            <span>
+              <span class="block text-xs font-semibold uppercase tracking-wider text-text-subtle">
+                GitHub
+              </span>
+
+              <span class="text-sm font-medium md:text-base">
+                @Ziondoescoding123
+              </span>
+            </span>
+
+          </a>
+        </li>
+
+        <li>
+          <span class="group flex items-center gap-3">
+
+            <span class="btn-icon pointer-events-none">
+              <i class="bx bx-map-pin icon" aria-hidden="true"></i>
+            </span>
+
+            <span>
+              <span class="block text-xs font-semibold uppercase tracking-wider text-text-subtle">
+                Location
+              </span>
+
+              <span class="text-sm font-medium md:text-base">
+                Canada
+              </span>
+            </span>
+
+          </span>
+        </li>
+
+      </ul>
+    </div>
+
+
+    <!-- Contact Form -->
+    <div class="reveal">
+
+      <form
+        id="contact-form"
+        class="rounded-sm border border-border bg-surface p-6 shadow-elevated md:p-8">
+
+        <div class="space-y-5">
+
+          <div>
+            <label for="name" class="label">Name</label>
+
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              autocomplete="name"
+              class="input"
+              placeholder="Your name"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="label">Email</label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              class="input"
+              placeholder="you@example.com"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="label">Message</label>
+
+            <textarea
+              id="message"
+              name="message"
+              required
+              class="input"
+              placeholder="Say hello or tell me about an opportunity…"></textarea>
+          </div>
+
+        </div>
+
+        <div class="mt-6 flex flex-wrap items-center gap-4">
+
+          <button
+            type="submit"
+            class="btn shimmer-btn min-h-11 text-sm md:min-h-12">
+
+            <span>Send message</span>
+
+          </button>
+
+          <p
+            id="form-status"
+            class="text-sm text-success"
+            hidden>
+          </p>
+
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+
+<!-- Footer -->
+<footer class="border-t border-border bg-surface">
+
+  <div
+    class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between">
+
+    <div>
+      <p class="font-display text-lg font-bold">
+        Zion Uzuokoh
+      </p>
+
+      <p class="mt-1 text-sm text-text-muted">
+        Software Engineer · Canada · Basketball fan
+      </p>
+    </div>
+
+    <div class="flex items-center gap-3">
+
+      <a
+        href="https://github.com/Ziondoescoding123"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-icon"
+        aria-label="GitHub">
+
+        <i class="bx bxl-github icon" aria-hidden="true"></i>
+
+      </a>
+
+    </div>
+
+    <p class="text-sm text-text-subtle">
+      © <span id="footer-year"></span> Zion Uzuokoh. All rights reserved.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<script type="module" src="js/basketball.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+</main>
+
+  </body>
+  
+</html>
